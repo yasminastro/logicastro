@@ -12,11 +12,11 @@ const posts = await getCollection("posts");
 
 const featuredPosts = posts
   .filter((p) => p.data.featured)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf())
   .slice(0, 6);
 
 const latestPosts = posts
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf())
   .slice(0, 5);
 ---
 
@@ -125,7 +125,7 @@ const latestPosts = posts
                 </p>
 
                 <div class="mt-6 text-sm text-neutral-500">
-                  {post.data.pubDate.toLocaleDateString("zh-CN")}
+                  {post.data.published.toLocaleDateString("zh-CN")}
                 </div>
               </div>
             </Card>
@@ -257,7 +257,7 @@ const latestPosts = posts
               </div>
 
               <div class="text-sm text-neutral-500 whitespace-nowrap">
-                {post.data.pubDate.toLocaleDateString("zh-CN")}
+                {post.data.published.toLocaleDateString("zh-CN")}
               </div>
             </div>
           </a>
